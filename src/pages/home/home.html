@@ -5,13 +5,41 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+    <ion-card *ngFor="let filme of filmes">
+
+        <ion-item>
+          <ion-avatar item-start>
+            <img width="50px" src="https://www.themoviedb.org/assets/2/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg">
+          </ion-avatar>
+          <h2><a>{{filme.original_title}}</a></h2>
+          <p>{{release_date}}</p>
+        </ion-item>
+      
+        <img [src]="'https://image.tmdb.org/t/p/w300' + filme.poster_path">
+      
+        <ion-card-content>
+          <p>{{filme.overview}}</p>
+        </ion-card-content>
+      
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>{{filme.vote_count}} Likes</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-start clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>4 Comments</div>
+            </button>
+          </ion-col>
+          <ion-col align-self-center text-center>
+            <ion-note>
+              11h ago
+            </ion-note>
+          </ion-col>
+        </ion-row>
+      
+      </ion-card>
 </ion-content>
